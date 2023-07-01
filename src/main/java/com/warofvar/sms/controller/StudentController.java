@@ -18,10 +18,10 @@ public class StudentController {
 	
 	private IStudentService studentService;
 	
-	@GetMapping("/")
+	@GetMapping( {"/", "/index"})
 	public String home(Model model) {
 		model.addAttribute("students", studentService.getAllStudents());
-		return "home";
+		return "index";
 	}
 	
 	// handler method to handle list students and return mode and view
