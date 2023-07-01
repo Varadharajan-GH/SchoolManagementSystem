@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.warofvar.sms.entity.Student;
 
-public interface StudentService {
+public interface IStudentService {
 	List<Student> getAllStudents();
 	
 	Student saveStudent(Student student);

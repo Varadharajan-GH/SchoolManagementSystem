@@ -8,18 +8,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.warofvar.sms.entity.Student;
-import com.warofvar.sms.service.StudentService;
+import com.warofvar.sms.service.IStudentService;
 
-// TODO: constructor
+import lombok.AllArgsConstructor;
+
 @Controller
+@AllArgsConstructor
 public class StudentController {
 	
-	private StudentService studentService;
-
-	public StudentController(StudentService studentService) {
-		super();
-		this.studentService = studentService;
-	}
+	private IStudentService studentService;
 	
 	// handler method to handle list students and return mode and view
 	@GetMapping("/students")
@@ -69,7 +66,7 @@ public class StudentController {
 	
 	// handler method to handle delete student request
 	
-	@GetMapping("/students/{id}")
+	@GetMapping("/students/delete/{id}")
 	public String deleteStudent(@PathVariable Long id) {
 		studentService.deleteStudentById(id);
 		return "redirect:/students";
